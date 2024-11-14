@@ -2,6 +2,10 @@ import { Groq } from 'groq-sdk';
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
+<<<<<<< HEAD
+=======
+// Allow fallback to demo mode if API key is not configured
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
 const groq = new Groq({
   apiKey: GROQ_API_KEY || 'demo_key',
   dangerouslyAllowBrowser: true
@@ -23,10 +27,32 @@ features:
 4. Automated task dependencies mapping
 5. Personal productivity insights dashboard`;
 
+<<<<<<< HEAD
 export async function generateGroqIdea(type: string): Promise<any> {
   if (!GROQ_API_KEY) {
     console.warn('Running in demo mode. Add GROQ API key to enable AI features.');
     return Promise.reject(new Error('GROQ API key is required'));
+=======
+// Mock response for demo mode
+const demoResponse = {
+  name: "IdeaForge Demo",
+  description: "This is a demo version. To enable AI-powered idea generation, please configure your GROQ API key in the .env file.",
+  purpose: "To demonstrate the application's functionality without requiring an API key.",
+  targetAudience: "Developers testing the application",
+  keyFeatures: [
+    "Demo mode functionality",
+    "UI/UX preview",
+    "Sample idea generation",
+    "Local storage integration",
+    "Basic feature showcase"
+  ]
+};
+
+export async function generateGroqIdea(type: string): Promise<any> {
+  if (!GROQ_API_KEY) {
+    console.warn('Running in demo mode. Add GROQ API key to enable AI features.');
+    return Promise.resolve(demoResponse);
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
   }
 
   const prompt = `Create a unique ${type} concept that solves real problems.
@@ -58,7 +84,14 @@ Structure the response exactly like the example format.`;
 export async function enhanceGroqIdea(type: string, userIdea: string): Promise<any> {
   if (!GROQ_API_KEY) {
     console.warn('Running in demo mode. Add GROQ API key to enable AI features.');
+<<<<<<< HEAD
     return Promise.reject(new Error('GROQ API key is required'));
+=======
+    return Promise.resolve({
+      ...demoResponse,
+      description: `Enhanced demo for: ${userIdea}`
+    });
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
   }
 
   const prompt = `Enhance this ${type} idea: "${userIdea}"

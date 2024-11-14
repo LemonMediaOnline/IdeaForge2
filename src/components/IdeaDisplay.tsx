@@ -1,9 +1,14 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Target, Users, Lightbulb, Check, ArrowRightCircle, Save } from 'lucide-react';
+=======
+import { ArrowRight, Target, Users, Lightbulb, Check, ArrowRightCircle } from 'lucide-react';
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
 import { SoftwareIdea } from '../utils/ideaGeneration';
 
 interface IdeaDisplayProps {
   idea: SoftwareIdea;
+<<<<<<< HEAD
   onDeepPlan?: () => void;
   onSave?: () => void;
   isSaving?: boolean;
@@ -25,6 +30,15 @@ const IdeaDisplay: React.FC<IdeaDisplayProps> = ({
     <div className="animate-fadeIn">
       <div className="mb-6">
         <h3 className="text-xl font-bold text-gray-900 mb-2">{idea.name}</h3>
+=======
+}
+
+const IdeaDisplay: React.FC<IdeaDisplayProps> = ({ idea }) => {
+  return (
+    <div className="bg-white rounded-2xl shadow-xl p-8 animate-fadeIn">
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">{idea.name}</h2>
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
         <p className="text-gray-600">{idea.description}</p>
       </div>
 
@@ -34,7 +48,11 @@ const IdeaDisplay: React.FC<IdeaDisplayProps> = ({
             <Target className="w-5 h-5 text-indigo-600" />
           </div>
           <div>
+<<<<<<< HEAD
             <h4 className="font-medium text-gray-900 mb-1">Purpose</h4>
+=======
+            <h3 className="font-medium text-gray-900 mb-1">Purpose</h3>
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
             <p className="text-gray-600">{idea.purpose}</p>
           </div>
         </div>
@@ -44,7 +62,11 @@ const IdeaDisplay: React.FC<IdeaDisplayProps> = ({
             <Users className="w-5 h-5 text-purple-600" />
           </div>
           <div>
+<<<<<<< HEAD
             <h4 className="font-medium text-gray-900 mb-1">Target Audience</h4>
+=======
+            <h3 className="font-medium text-gray-900 mb-1">Target Audience</h3>
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
             <p className="text-gray-600">{idea.targetAudience}</p>
           </div>
         </div>
@@ -54,7 +76,11 @@ const IdeaDisplay: React.FC<IdeaDisplayProps> = ({
             <Lightbulb className="w-5 h-5 text-blue-600" />
           </div>
           <div>
+<<<<<<< HEAD
             <h4 className="font-medium text-gray-900 mb-1">Key Features</h4>
+=======
+            <h3 className="font-medium text-gray-900 mb-1">Key Features</h3>
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
             <ul className="space-y-2">
               {idea.keyFeatures.map((feature, index) => (
                 <li key={index} className="flex items-start gap-2">
@@ -67,6 +93,7 @@ const IdeaDisplay: React.FC<IdeaDisplayProps> = ({
         </div>
       </div>
 
+<<<<<<< HEAD
       {!hideActions && onSave && onDeepPlan && (
         <div className="flex gap-4">
           <button 
@@ -106,6 +133,16 @@ const IdeaDisplay: React.FC<IdeaDisplayProps> = ({
           </button>
         </div>
       )}
+=======
+      <button 
+        className="w-full py-4 px-6 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl 
+          font-medium shadow-lg hover:from-green-700 hover:to-teal-700 transition
+          flex items-center justify-center gap-2"
+      >
+        <span>Move to DeepPlan</span>
+        <ArrowRightCircle className="w-5 h-5" />
+      </button>
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Trash2, Clock, Sparkles, FileStack } from 'lucide-react';
+=======
+import { Trash2, Clock } from 'lucide-react';
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
 import { SavedIdea } from '../utils/database';
 
 interface SavedIdeasProps {
@@ -23,6 +27,7 @@ const SavedIdeas: React.FC<SavedIdeasProps> = ({ ideas, onDelete, onSelect }) =>
             className="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition"
           >
             <div className="flex justify-between items-start mb-2">
+<<<<<<< HEAD
               <div className="flex-1">
                 <button
                   onClick={() => onSelect(savedIdea)}
@@ -41,6 +46,17 @@ const SavedIdeas: React.FC<SavedIdeasProps> = ({ ideas, onDelete, onSelect }) =>
               <button
                 onClick={() => onDelete(savedIdea.id)}
                 className="p-1 text-gray-400 hover:text-red-500 transition ml-4"
+=======
+              <button
+                onClick={() => onSelect(savedIdea)}
+                className="text-lg font-medium text-gray-900 hover:text-indigo-600 transition"
+              >
+                {savedIdea.idea.name}
+              </button>
+              <button
+                onClick={() => onDelete(savedIdea.id)}
+                className="p-1 text-gray-400 hover:text-red-500 transition"
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
                 title="Delete idea"
               >
                 <Trash2 className="w-5 h-5" />

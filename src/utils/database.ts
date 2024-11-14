@@ -2,7 +2,10 @@
 export interface SavedIdea {
   id: string;
   idea: any;
+<<<<<<< HEAD
   deepPlan?: any;
+=======
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
   savedAt: number;
 }
 
@@ -27,7 +30,11 @@ async function initDB(): Promise<IDBDatabase> {
 }
 
 // Save an idea to the database
+<<<<<<< HEAD
 export async function saveIdea(idea: any, deepPlan?: any): Promise<string> {
+=======
+export async function saveIdea(idea: any): Promise<string> {
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
   const db = await initDB();
   const id = crypto.randomUUID();
   
@@ -38,7 +45,10 @@ export async function saveIdea(idea: any, deepPlan?: any): Promise<string> {
     const savedIdea: SavedIdea = {
       id,
       idea,
+<<<<<<< HEAD
       deepPlan,
+=======
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
       savedAt: Date.now()
     };
 

@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { Sparkles, Lightbulb, Save, Wand2 } from 'lucide-react';
+=======
+import { Sparkles, Lightbulb, Save, Wand2, ArrowRightCircle } from 'lucide-react';
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
 import IdeaDisplay from './components/IdeaDisplay';
 import SavedIdeas from './components/SavedIdeas';
 import DeepPlanView from './components/DeepPlanView';
@@ -20,8 +24,11 @@ function App() {
   const [savedIdeas, setSavedIdeas] = useState<SavedIdea[]>([]);
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+<<<<<<< HEAD
   const [isDeepPlanSaving, setIsDeepPlanSaving] = useState(false);
   const [deepPlanSaveSuccess, setDeepPlanSaveSuccess] = useState(false);
+=======
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
 
   useEffect(() => {
     loadSavedIdeas();
@@ -83,6 +90,7 @@ function App() {
     }
   };
 
+<<<<<<< HEAD
   const handleSaveWithDeepPlan = async () => {
     if (!generatedIdea || !deepPlanAnalysis) return;
     
@@ -99,6 +107,8 @@ function App() {
     }
   };
 
+=======
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
   const handleDelete = async (id: string) => {
     try {
       await deleteIdea(id);
@@ -110,7 +120,11 @@ function App() {
 
   const handleSelectSaved = (savedIdea: SavedIdea) => {
     setGeneratedIdea(savedIdea.idea);
+<<<<<<< HEAD
     setDeepPlanAnalysis(savedIdea.deepPlan || null);
+=======
+    setDeepPlanAnalysis(null);
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
   };
 
   return (
@@ -213,6 +227,7 @@ function App() {
         </div>
 
         {generatedIdea && !deepPlanAnalysis && (
+<<<<<<< HEAD
           <IdeaDisplay 
             idea={generatedIdea} 
             onDeepPlan={handleDeepPlan}
@@ -231,6 +246,45 @@ function App() {
             isSaving={isDeepPlanSaving}
             saveSuccess={deepPlanSaveSuccess}
           />
+=======
+          <div className="space-y-4">
+            <IdeaDisplay idea={generatedIdea} />
+            <div className="flex gap-4">
+              <button
+                onClick={handleSave}
+                disabled={isSaving}
+                className={`flex-1 py-4 px-6 rounded-xl font-medium shadow-lg transition
+                  flex items-center justify-center gap-2
+                  ${saveSuccess 
+                    ? 'bg-green-600 text-white'
+                    : 'bg-white text-gray-900 hover:bg-gray-50'}`}
+              >
+                <Save className="w-5 h-5" />
+                {saveSuccess ? 'Saved!' : 'Save This Idea'}
+              </button>
+              <button
+                onClick={handleDeepPlan}
+                disabled={isAnalyzing}
+                className="flex-1 py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl 
+                  font-medium shadow-lg hover:from-blue-700 hover:to-indigo-700 transition
+                  flex items-center justify-center gap-2"
+              >
+                {isAnalyzing ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
+                ) : (
+                  <>
+                    <ArrowRightCircle className="w-5 h-5" />
+                    Move to DeepPlan
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {deepPlanAnalysis && (
+          <DeepPlanView analysis={deepPlanAnalysis} />
+>>>>>>> 3e628a2168b56fec3281130d34c634e61e91a332
         )}
       </div>
     </div>
